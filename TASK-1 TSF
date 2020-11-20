@@ -1,0 +1,26 @@
+> #IMPORTING THE DATA
+> data<-read.csv(file.choose())
+> DATA<-data.frame(data)
+> DATA
+> #UNDERSTANDING THE DATA
+> summary(DATA)
+> head(DATA)
+> #skewness and kurtosis of the data 
+> install.packages("moments")
+> library(moments)
+> skewness(DATA)
+> kurtosis(DATA)
+> #structure of data
+> str(DATA)
+> #To see if the data is correlated
+> x<-DATA$Hours
+> y<-DATA$Scores
+> cor(x,y)
+> plot(x,y)
+> #We see the correlated between Hours and Scores (x is used for Hours and y for Scores) is 0.976 which indicates a strong positive relationship between the hours studied and scores obtained.
+> #TO FIND OUT THE PREDICTED SCORE IF A STUDENT STUDIES FOR 9.25 HOURS/DAY
+> simplefit<-lm(Scores~Hours,data=DATA)
+> simplefit
+> summary(simplefit)
+> resid(simplefit)
+> #IF A STUDENT STUDIES FOR 9.25 HOURS THE SCORE OBTAINED IS 92.90
